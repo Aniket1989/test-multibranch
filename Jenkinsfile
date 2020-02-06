@@ -32,7 +32,7 @@ pipeline {
                 allOf {
                     expression {env.BRANCH_NAME == 'b1'}
                     expression {
-                        matches = sh(returnStatus:true, script: "git diff --name-only $MY_GIT_PREVIOUS_SUCCESSFUL_COMMIT|egrep -q '^packages/document/'")
+                        matches = sh(returnStatus:true, script: "git diff --name-only $lastSuccessfulCommit|egrep -q '^packages/document/'")
                         return !matches
                     }
                 }
@@ -50,7 +50,7 @@ pipeline {
                 allOf {
                     expression {env.BRANCH_NAME == 'b1'}
                     expression {
-                        matches = sh(returnStatus:true, script: "git diff --name-only $MY_GIT_PREVIOUS_SUCCESSFUL_COMMIT|egrep -q '^packages/datasync/'")
+                        matches = sh(returnStatus:true, script: "git diff --name-only $lastSuccessfulCommit|egrep -q '^packages/datasync/'")
                         return !matches
                     }
                 }
@@ -68,7 +68,7 @@ pipeline {
                 allOf {
                     expression {env.BRANCH_NAME == 'b1'}
                     expression {
-                        matches = sh(returnStatus:true, script: "git diff --name-only $MY_GIT_PREVIOUS_SUCCESSFUL_COMMIT|egrep -q '^packages/pricing/'")
+                        matches = sh(returnStatus:true, script: "git diff --name-only $lastSuccessfulCommit|egrep -q '^packages/pricing/'")
                         return !matches
                     }
                 }
