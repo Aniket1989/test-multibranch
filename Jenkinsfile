@@ -40,7 +40,7 @@ pipeline {
                 allOf {
                     expression {env.BRANCH_NAME == 'b1'}
                     expression {
-                        matches = sh(returnStatus:true, script: "git diff --name-only $MY_GIT_PREVIOUS_SUCCESSFUL_COMMIT|egrep -q '^packages/document/'")
+                        matches = sh(returnStatus:true, script: "git diff --name-only $MY_GIT_PREVIOUS_SUCCESSFUL_COMMIT|egrep -q '^packages/datasync/'")
                         return !matches
                     }
                 }
@@ -58,7 +58,7 @@ pipeline {
                 allOf {
                     expression {env.BRANCH_NAME == 'b1'}
                     expression {
-                        matches = sh(returnStatus:true, script: "git diff --name-only $MY_GIT_PREVIOUS_SUCCESSFUL_COMMIT|egrep -q '^packages/document/'")
+                        matches = sh(returnStatus:true, script: "git diff --name-only $MY_GIT_PREVIOUS_SUCCESSFUL_COMMIT|egrep -q '^packages/pricing/'")
                         return !matches
                     }
                 }
@@ -80,7 +80,7 @@ pipeline {
             }
             steps {
                 sh './hello-world.sh'
-                sh './display_application.sh'
+                sh './packages/display_application.sh'
                 //input message: 'Finished using the web site? (Click "Proceed" to continue)'
             }
         }
