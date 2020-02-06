@@ -1,5 +1,11 @@
 pipeline {
     
+    agent {
+    node {
+        label 'docker'        
+    }
+}
+
     stages {        
 
         stage('Deliver for development') {
